@@ -10,7 +10,7 @@ class Session extends Model
     use HasFactory;
 
     protected $table = 'sessions';
-    protected $primaryKey = 'session_id';
+    protected $primaryKey = 'session_id'; // Only keep this if you are not using the default 'id' column
 
     protected $fillable = [
         'name',
@@ -22,6 +22,6 @@ class Session extends Model
      */
     public function requests()
     {
-        return $this->hasMany(Request::class, 'session_id', 'session_id');
+        return $this->belongsToMany(Request::class, 'request_session');
     }
 }

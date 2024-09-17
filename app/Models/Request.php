@@ -13,7 +13,6 @@ class Request extends Model
 
     protected $fillable = [
         'lab_id',
-        'session_id',
         'user_id',
         'request_date',
         'major',
@@ -32,20 +31,14 @@ class Request extends Model
         return $this->belongsTo(Lab::class, 'lab_id');
     }
 
-    /**
-     * Get the session that owns the request.
-     */
-    public function session()
-    {
-        return $this->belongsTo(Session::class, 'session_id', 'session_id');
-    }
-
-    /**
-     * Get the user that made the request.
-     */
     public function user()
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function sessions()
+    {
+        return $this->belongsToMany(Session::class, 'request_session');
     }
 
     /**

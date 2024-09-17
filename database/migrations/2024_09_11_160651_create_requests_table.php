@@ -9,7 +9,7 @@ class CreateRequestsTable extends Migration
     public function up()
     {
         Schema::create('requests', function (Blueprint $table) {
-            $table->id(); // id INT AUTO_INCREMENT PRIMARY KEY
+            $table->id(); 
 
             // Foreign key to labs table
             $table->unsignedBigInteger('lab_id');

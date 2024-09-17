@@ -9,7 +9,7 @@ class CreateNotificationsTable extends Migration
     public function up()
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->id(); // id INT AUTO_INCREMENT PRIMARY KEY
+            $table->id(); 
 
             // Foreign key to users table
             $table->unsignedBigInteger('user_id');
